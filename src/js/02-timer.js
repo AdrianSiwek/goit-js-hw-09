@@ -47,8 +47,15 @@ function convertMs(ms) {
   // Remaining seconds
   const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
 
-  return { days, hours, minutes, seconds };
+    return { days, hours, minutes, seconds };
 }
+
+const startTimer = () => {
+    startBtn.disabled = true;
+    Notify.info("Czas odpalać");
+}
+
+
 
 const addLeadingZero = (value) => {
     return String(value).padStart(2, '0');
