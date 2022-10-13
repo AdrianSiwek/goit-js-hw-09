@@ -10,7 +10,8 @@ const hours = document.querySelector('span[data-hours]');
 const minutes = document.querySelector('span[data-minutes]');
 const seconds = document.querySelector('span[data-seconds]');
 
-let myInterval = null;
+//let myInterval = null;
+startBtn.disabled = true;
 let previousDate = new Date();
 let chosenDate;
 
