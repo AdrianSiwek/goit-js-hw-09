@@ -4,11 +4,11 @@ import "flatpickr/dist/flatpickr.min.css";
 
 import Notiflix, { Notify } from 'notiflix';
 
-const startBtn = document.querySelector('[data-start]');
-const days = document.querySelector('[data-days]');
-const hours = document.querySelector('[data-hours]');
-const minutes = document.querySelector('[data-minutes]');
-const seconds = document.querySelector('[data-seconds]');
+const startBtn = document.querySelector('button[data-start]');
+const days = document.querySelector('span[data-days]');
+const hours = document.querySelector('span[data-hours]');
+const minutes = document.querySelector('span[data-minutes]');
+const seconds = document.querySelector('span[data-seconds]');
 
 let myInterval = null;
 let previousDate = new Date();
@@ -53,12 +53,22 @@ function convertMs(ms) {
 const startTimer = () => {
     startBtn.disabled = true;
     Notify.info("Czas odpalać");
+
+
+    const timerId = setInterval(() => {
+        let endTime = previousDate - Date.now();
+        let coundown = convertMs(endTime);
+        if (endTime <= 0) {
+            Notify.info("Koniec czasu");
+            clearInterval(timerId);
+        } else {
+            clockTimer(coundown);
+        }
+    }, 1000)
 }
-
-
-
 const addLeadingZero = (value) => {
     return String(value).padStart(2, '0');
 }
 
-btnStart.addEventListener('click', startTimer);
+const fp = flatpickr('input#datetime-picker', options);
+startBtn.addEventListener('click', startTimer);
