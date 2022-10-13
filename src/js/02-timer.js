@@ -58,15 +58,23 @@ const startTimer = () => {
 
     const timerId = setInterval(() => {
         let endTime = previousDate - Date.now();
-        let coundown = convertMs(endTime);
+        let countdown = convertMs(endTime);
         if (endTime <= 0) {
             Notify.info("Koniec czasu");
             clearInterval(timerId);
         } else {
-            clockTimer(coundown);
+            clockTimer(countdown);
         }
     }, 1000)
 }
+
+const clockTimer = (countdown) => {
+  days.textContent = countdown.days;
+  hours.textContent = countdown.hours;
+  minutes.textContent = countdown.minutes;
+  seconds.textContent = countdown.seconds;
+}
+
 const addLeadingZero = (value) => {
     return String(value).padStart(2, '0');
 }
