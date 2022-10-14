@@ -57,7 +57,7 @@ const startTimer = () => {
 
 
     const timerId = setInterval(() => {
-        let endTime = previousDate - Date.now();
+        let endTime = chosenDate - Date.now();
         let countdown = convertMs(endTime);
         if (endTime <= 0) {
             Notify.info("Koniec czasu");
