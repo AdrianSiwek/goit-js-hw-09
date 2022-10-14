@@ -18,6 +18,15 @@ function createPromise(position, delay) {
         reject({position, delay})
         // Reject
       }
-    },)
+    }, delay)
   });
 }
+
+
+createPromise(2, 1500)
+  .then(({ position, delay }) => {
+    Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+  })
+  .catch(({ position, delay }) => {
+    Notify.warning(`❌ Rejected promise ${position} in ${delay}ms`);
+  });
