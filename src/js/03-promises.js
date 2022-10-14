@@ -22,7 +22,8 @@ function createPromise(position, delay) {
 }
 
 
-form.addEventListener("submit", handleSubmit);
+
+form.addEventListener('submit', handleSubmit);
 
 const handleSubmit = (event) => {
   event.preventDefault();
