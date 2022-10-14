@@ -30,7 +30,7 @@ const handleSubmit = (event) => {
   let standStep = Number(inStep.value);
   let standAmount = Number(inAmount.value);
 
-  for (let i=1, i<=standAmount, i++) {
+  for (let i = 1; i <= standAmount; i++) {
     createPromise(i, standDelay)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
