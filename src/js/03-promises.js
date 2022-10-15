@@ -23,7 +23,7 @@ function createPromise(position, delay) {
 
 
 
-form.addEventListener('submit', handleSubmit);
+
 
 const handleSubmit = (event) => {
   event.preventDefault();
@@ -42,3 +42,5 @@ const handleSubmit = (event) => {
     standDelay += standStep;
   }
 }
+  
+form.addEventListener('submit', handleSubmit);
